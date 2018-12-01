@@ -2,4 +2,27 @@ edson:
   name: Edson Ramirez
   email: edson@ramirez.com
   password_digest: <%= User.digest('password') %>
+  admin: true
 #empty
+
+michael:
+  name: Michael Scott
+  email: michael@scott.com
+  password_digest: <%= User.digest('password') %>
+
+tuna:
+  name: Big Tuna
+  email: bigtuna@gmail.com
+  password_digest: <%= User.digest('password') %>
+
+dwight:
+  name: Dwight Schrute
+  email: dwight@schrute.com
+  password_digest: <%= User.digest('password') %>
+
+<% 30.times do |n| %>
+user_<%= n %>:
+  name: <%= "User #{n}" %>
+  email: <%= "user-#{n}@gmail.com" %>
+  password_digest: <%= User.digest('password') %>
+<% end %>
