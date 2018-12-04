@@ -1,0 +1,10 @@
+<h1>Twitter App</h1>
+
+<p>Hi <%= @user.name %>,</p>
+
+<p>
+  Welcome to the Twitter app, click on the ling below to activate you account:
+</p>
+
+<%= link_to "Activate", edit_account_activation_url(@user.activation_token,
+                                                    email: @user.email) %>
