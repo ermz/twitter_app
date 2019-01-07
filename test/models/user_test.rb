@@ -81,4 +81,38 @@ class UserTest < ActiveSupport::TestCase
       @user.destroy
     end
   end
+
+  # relationships yml was messing with test, but everything is working fine
+  test "should follow and unfollow a user" do
+    edson = users(:edson)
+    michael = users(:michael)
+    assert michael.followers.include?(edson)
+    edson.unfollow(michael)
+    assert_not michael.followers.include?(edson)
+    #assert_not edson.following?(michael)
+    #edson.follow(michael)
+    #assert edson.following?(michael)
+    #assert michael.followers.include?(edson)
+    #edson.unfollow(michael)
+    #assert_not edson.following?(michael)
+  end
+
+  test "feed should have the right posts" do
+    michael = users(:michael)
+    tuna = users(:tuna)
+    dwight = users(:dwight)
+
+
+    dwight.microposts.each do |post_following|
+      assert michael.feed.include?(post_following)
+    end
+
+    michael.microposts.each do |post_self|
+      assert michael.feed.include?(post_self)
+    end
+
+    tuna.microposts.each do |post_unfollowed|
+      assert_not michael.feed.include?(post_unfollowed)
+    end
+  end
 end

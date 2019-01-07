@@ -1,0 +1,31 @@
+one:
+  follower: edson
+  followed: michael
+
+two:
+  follower: edson
+  followed: tuna
+
+three:
+  follower: michael
+  followed: edson
+
+four:
+  follower: dwight
+  followed: edson
+
+five:
+  follower: tuna
+  followed: john
+
+six:
+  follower: dwight
+  followed: hank
+
+seven:
+  follower: hank
+  followed: edson
+
+eight:
+  follower: michael
+  followed: dwight

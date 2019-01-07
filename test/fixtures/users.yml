@@ -28,6 +28,20 @@ dwight:
   activated: true
   activated_at: <%= Time.zone.now %>
 
+hank:
+  name: Hank Hill
+  email: propane@hotmail.com
+  password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
+
+john:
+  name: John Redcorn
+  email: daleswife@gmail.com
+  password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
+
 <% 30.times do |n| %>
 user_<%= n %>:
   name: <%= "User #{n}" %>
